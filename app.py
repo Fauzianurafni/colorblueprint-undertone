@@ -65,7 +65,7 @@ if st.session_state.get("invalid", False):
 @st.dialog("Panduan Pengambilan Foto")
 def tampilkan_popup_panduan():
     st.image(
-        "assets/panduan.png", 
+        "assets/Panduan.png", 
         use_container_width=True
     )
     st.caption("Pastikan Anda mengikuti panduan di atas agar hasil analisis akurat.")

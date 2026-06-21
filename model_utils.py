@@ -55,6 +55,9 @@ def validate_wrist_image(img):
     
     if skin_ratio < 0.15: 
         return False, "Tidak terdeteksi warna kulit manusia."
+    
+    if skin_ratio < 0.30:
+        return False, "Dekatkan area pergelangan tangan ke kamera."
 
     return True, "Lolos"
 
