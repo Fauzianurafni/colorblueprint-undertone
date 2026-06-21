@@ -1,6 +1,17 @@
 import streamlit as st
 import tensorflow as tf
 import streamlit.components.v1 as components
+import streamlit as st
+
+st.set_page_config(
+    page_title="ColourBlueprint",
+    page_icon="🎨",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
+
+import tensorflow as tf
+import streamlit.components.v1 as components
 import io
 import base64
 
@@ -83,9 +94,6 @@ if "uploaded_file" not in st.session_state:
 if "camera_file" not in st.session_state:
     st.session_state.camera_file = None
 
-if "input_mode" not in st.session_state:
-    st.session_state.input_mode = "Upload Foto"
-
 # ---------------------------------------------------------
 # KOLOM KIRI: INPUT & PREVIEW AREA
 # ---------------------------------------------------------
@@ -141,7 +149,7 @@ with left_col:
                 ["Upload", "Kamera"],
                 horizontal=True,
                 label_visibility="collapsed",
-                key="input_mode"
+                key="input_mode_v2"
             )
 
             # ==========================================
