@@ -23,16 +23,6 @@ from color_data import *
 from components import *
 from config import *
 
-# =========================================================
-# PAGE CONFIG
-# =========================================================
-st.set_page_config(
-    page_title=APP_NAME,
-    page_icon=APP_ICON,
-    layout=APP_LAYOUT,
-    initial_sidebar_state=APP_SIDEBAR
-)
-
 tf.get_logger().setLevel('ERROR')
 
 model = load_all_models()
