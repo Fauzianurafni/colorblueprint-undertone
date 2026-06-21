@@ -1,0 +1,723 @@
+/* =========================================================
+   1. FONTS & RESET CORE
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* TEXT */
+    --ink: #2F2430;
+    --ink-soft: #5E4D56;
+    --ink-muted: #8F7D86;
+
+    /* BASE */
+    --bg: #FCFAF8;
+    --surface: #FFFFFF;
+
+    /* BORDER */
+    --border: #E6DADD;
+    --border-mid: #CDBFC3;
+
+    /* MAIN ACCENT */
+    --accent: #B85D79;
+    --accent-2: #D8849D;
+
+    /* UNDERTONE */
+    --warm-a: #D89A43;
+    --cool-a: #9F73B9;
+    --neutral-a: #7E9B88;
+
+    /* MATCHA */
+    --matcha: #7E9B88;
+    --matcha-soft: #E4ECE7;
+
+    /* STRAWBERRY */
+    --strawberry: #C96A87;
+    --strawberry-soft: #F7E6EB;
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+}
+
+html, body, .stApp {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden !important;
+}
+
+/* Mematikan bawaan ornamen header Streamlit */
+#MainMenu, footer, header { 
+    visibility: hidden; 
+}
+[data-testid="stDecoration"] { 
+    display: none; 
+}
+
+/* Layout Wrapper Utama Streamlit */
+.block-container {
+    max-width: 1600px !important;
+    padding-top: 40px !important;
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+    padding-bottom: 3rem !important;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.stImage img {
+    width: 100% !important;
+    border-radius: 16px;
+    display: block;
+}
+
+/* =========================================================
+   2. NAVBAR COMPONENT
+   ========================================================= */
+.cb-nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:10px 24px;
+
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(230,218,221,.6);
+
+    box-shadow:0 2px 10px rgba(0,0,0,.03);
+
+    width:100%;
+    box-sizing:border-box;
+}
+
+.cb-brand {
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.cb-brand-name{
+    font-size:18px;
+    font-weight:800;
+    color:#2F2430;
+}
+
+.cb-brand-tag{
+    font-size:8px;
+    letter-spacing:1px;
+    color:#9A8E95;
+    text-transform:uppercase;
+}
+
+.cb-badge{
+    display:flex;
+    align-items:center;
+    gap:5px;
+
+    height:32px;
+    padding:0 14px;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        #D77497,
+        #C95C84
+    );
+
+    color:white;
+
+    font-size:10px;
+    font-weight:600;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 4px 12px rgba(215,116,151,.18);
+}
+
+div[data-testid="stVerticalBlock"] > div:has(.empty-state-card){
+    margin-top:4px;
+}
+
+div[role="radiogroup"] {
+    gap: 10px;
+}
+
+div[role="radiogroup"] label {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+div[role="radiogroup"] label:hover {
+    border-color: var(--accent);
+}
+
+[data-testid="stSpinner"] { 
+    color: var(--accent) !important; 
+}
+
+@media (max-width: 768px){
+
+    .hero-card{
+        flex-direction:column !important;
+        min-height:auto !important;
+        gap:20px;
+        padding:18px !important;
+    }
+
+    .hero-left{
+        width:100% !important;
+    }
+
+    .hero-right{
+        width:100% !important;
+    }
+
+    .hero-divider{
+        display:none !important;
+    }
+
+    .hero-title{
+        font-size:42px !important;
+        line-height:1 !important;
+    }
+
+    .hero-subtitle{
+        font-size:20px !important;
+    }
+
+    .hero-desc{
+        font-size:13px !important;
+    }
+
+    .confidence-title{
+        font-size:20px !important;
+    }
+}
+
+.cb-step-desc {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin-bottom: 16px;
+    padding-left: 36px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px){
+
+    .cb-step-desc{
+        margin-bottom:8px !important;
+    }
+
+}
+
+.equal-height-card{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.equal-height-card > div:last-child{
+    margin-top:auto;
+}
+
+.equal-height-card .stContainer{
+    height:100%;
+}
+
+.equal-card > div {
+    height: 100%;
+}
+
+/* Custom Dropzone File Uploader */
+[data-testid="stFileUploader"] { border: none !important; background: transparent !important; }
+[data-testid="stFileUploader"] button { display: none !important; }
+[data-testid="stFileUploaderDropzone"] svg { display: none !important; }
+[data-testid="stFileUploaderDropzone"] > div > span { display: none !important; }
+[data-testid="stFileUploaderDropzone"] > div > small { display: none !important; }
+
+[data-testid="stFileUploaderDropzone"] {
+    background: #FAFAF8 !important;
+    border: 2px dashed #C8AEB5 !important;
+    border-radius: var(--radius-md) !important;
+    padding: 36px 20px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 130px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .5),
+                0 8px 20px rgba(0, 0, 0, .03);
+}
+
+[data-testid="stFileUploaderDropzone"]:hover {
+    border-color: var(--strawberry) !important;
+    background: #FFF0F4 !important;
+}
+
+[data-testid="stFileUploaderDropzone"]::before {
+    content: "cloud_upload";
+    font-family: 'Material Symbols Rounded';
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 40px;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--accent);
+}
+
+[data-testid="stFileUploaderDropzone"]::after {
+    content: "Seret foto ke sini atau klik untuk memilih";
+    display: block;
+    color: var(--ink-soft);
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+}
+
+
+/* =========================================================
+   5. BUTTON SYSTEMS (GLOBAL & KINDS)
+   ========================================================= */
+.stButton > button {
+    width: 100%;
+    height: 42px;
+
+    border-radius: 10px;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-1px) !important;
+    background: linear-gradient(135deg, #D97D9A, #B85D79) !important;
+    box-shadow: 0 10px 24px rgba(232, 154, 174, 0.35) !important;
+}
+
+.stButton > button:active {
+    transform: translateY(0) !important;
+}
+
+.stButton > button[kind="secondary"]{
+    background: #FFFFFF;
+    border: 1px solid #E6DADD;
+    color: #4B5563;
+}
+
+.stButton > button[kind="secondary"]:hover{
+    border-color:#D9C7CC;
+}
+
+.stButton > button[kind="primary"]{
+    background: linear-gradient(
+        135deg,
+        #D57A9A,
+        #C84F7C
+    );
+
+    border:none;
+    color:white;
+}
+
+.stButton > button[kind="primary"]:hover{
+    transform:translateY(-1px);
+}
+
+.cb-primary-btn button {
+    background: linear-gradient(135deg, #D76A8A, #B84D70) !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    height: 52px !important;
+    box-shadow: 0 8px 24px rgba(184, 77, 112, .35) !important;
+}
+
+/* Card Shell */
+.cb-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    margin-bottom: 18px;
+}
+
+.cb-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.cb-card-title .material-symbols-rounded { font-size: 18px; color: var(--accent); }
+
+.cb-desc {
+    text-align: justify;
+    line-height: 1.6;
+    color: var(--ink-soft);
+}
+
+/* Educational Info Section */
+.cb-edu-text {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    text-align: justify;
+    text-align-last: left;
+}
+
+.cb-info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.cb-info-tile {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #FFFDFC;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    transition: .2s ease;
+    min-height: 88px;
+}
+
+.cb-info-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.cb-tile-head {
+    min-width: 130px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+    flex-shrink: 0;
+}
+.cb-tile-head .material-symbols-rounded { font-size: 18px; width: 18px; }
+
+.cb-tile-body {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    flex: 1;
+    text-align: left;
+}
+
+/* Empty & Tips Box state */
+.cb-tip {
+    background: #FFFBF0;
+    border: 1px solid #F0D98A;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #7A5C00;
+    margin: 14px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+}
+.cb-tip .material-symbols-rounded { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+.cb-empty {
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px dashed var(--border-mid);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    color: var(--ink-muted);
+}
+.cb-empty-icon { font-size: 64px; margin-bottom: 14px; color: var(--border-mid); }
+.cb-empty-title { font-size: 16px; font-weight: 600; color: var(--ink-soft); margin-bottom: 8px; }
+.cb-empty-desc { font-size: 13px; max-width: 280px; line-height: 1.6; }
+
+.cb-chip {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: #EDFAF4;
+    color: #0E7C4A;
+    border: 1px solid #A3E6C5;
+    margin-left: auto;
+}
+
+
+/* =========================================================
+   7. PREMIUM KATALOG COLOR PALETTE GRID SYSTEM (FIXED 5 COL)
+   ========================================================= */
+.premium-palette-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important; /* Mengunci mati layout 5 kolom */
+    row-gap: 20px !important;
+    column-gap: 10px !important;
+    width: 100% !important;
+    max-width: 540px;
+    margin: 0 auto !important;
+    padding: 4px 0;
+}
+
+.premium-palette-item{
+    text-align:center;
+}
+
+.premium-palette-swatch{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    margin:0 auto 3px auto;
+}
+
+.premium-palette-label{
+    font-size:10px;
+    line-height:1.2;
+    margin-top:0;
+}
+
+/* Cadangan Class Swatch Lama */
+.cb-swatch { border-radius: 8px; margin-bottom: 6px; transition: transform 0.15s; cursor: default; }
+.cb-swatch:hover { transform: scale(1.05); }
+.cb-swatch-name { font-size:9px; text-align:center; width: 45px; margin-top:4px; line-height:1.1; overflow-wrap:break-word; min-height: 22px; }
+
+
+/* =========================================================
+   8. OUTFIT VISUALIZER DYNAMIC LAYOUT
+   ========================================================= */
+.cb-outfit-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.cb-garment {
+    position: relative;
+    width: 140px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cb-color-mask {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    z-index: 1;
+}
+
+.cb-garment-base {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    z-index: 2;
+    filter: contrast(1.1);
+}
+
+.cb-outfit-swatches {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-bottom: 24px;
+}
+
+.cb-swatch-item { text-align: center; }
+.cb-circle { width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 8px auto; border: 1px solid var(--border-mid); box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+.cb-circle-label { font-size: 11px; color: var(--ink); font-weight: 500; line-height: 1.3; }
+.cb-outfit-divider { border-top: 1px solid #E5E7EB; margin-bottom: 24px; }
+
+.cb-outfit-tags {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.cb-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #F3F4F6;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    border: 1px solid #E5E7EB;
+}
+.cb-tag .material-symbols-rounded { font-size: 18px; color: var(--ink-muted); }
+
+.cb-outfit-desc-box {
+    background: #F9FAFB;
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-align: center;
+    line-height: 1.6;
+    border: 1px solid #F3F4F6;
+}
+
+/* =========================================================
+   9. FIXED EQUAL HEIGHT LAYOUT SYSTEM
+   ========================================================= */
+[data-testid="stHorizontalBlock"] {
+    display: flex !important;
+    align-items: stretch !important;
+}
+
+[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"] {
+    padding: 10px !important;
+
+}
+
+[data-testid="stVerticalBlockBorderWrapper"] > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    flex: 1 1 auto !important;
+}
+
+.premium-palette-container,
+.premium-flex-height {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    flex: 1 1 auto !important;
+}
+
+.stMarkdown div[data-transparent="true"] {
+    height: 100% !important;
+}
+
+/* =========================================================
+   11. MEDIA QUERIES (RESPONSIVE ENGINE OVERRIDES)
+   ========================================================= */
+@media (max-width: 900px) {
+    [data-testid="stHorizontalBlock"] {
+        flex-direction: column !important;
+    }
+    [data-testid="stHorizontalBlock"] > div {
+        width: 100% !important;
+        min-width: 100% !important;
+        flex: 1 1 100% !important;
+    }
+    .block-container {
+        padding-top: 40px !important;
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    [data-testid="stVerticalBlockBorderWrapper"] {
+        height: auto !important;
+        margin-bottom: 8px !important;
+    }
+}
+
+@media (max-width: 860px) {
+    .cb-nav {
+        padding: 14px 16px !important;
+        min-height: 68px;
+        align-items: center;
+    }
+    .cb-brand-tag { display: none; }
+    .cb-brand-name { font-size: 22px !important; }
+    .cb-badge { font-size: 10px; padding: 6px 12px; }
+}
+
+@media (max-width: 700px) {
+    .cb-info-grid, .cb-footer {
+        grid-template-columns: 1fr !important;
+    }
+    .cb-hero-title { font-size: 44px; }
+    .cb-hero { padding: 32px 16px; }
+    .cb-card { padding: 16px; }
+    .cb-card-title { font-size: 12px; }
+}
+
+@media (max-width: 600px) {
+    /* Menahan struktur 5 kolom katalog agar mengecil proporsional di layar HP */
+    .premium-palette-grid {
+        column-gap: 6px !important;
+        row-gap: 16px !important;
+    }
+    .premium-palette-swatch {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    .premium-palette-label {
+        font-size: 8.5px !important;
+        min-height: 22px !important;
+    }
+    .cb-swatch { border-radius: 6px !important; }
+}
+
+@media (max-width: 480px) {
+    .cb-swatch-name { font-size: 9px; }
+    .cb-outfit-bg { height: 260px !important; }
+    .cb-outfit-showcase { gap: 15px; }
+    .cb-garment { width: 110px; height: 140px; }
+    .cb-outfit-swatches { gap: 40px; }
+    .block-container {
+        padding-top: 40px !important;
+        padding-right: 0.5rem !important;
+        padding-left: 0.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+}
