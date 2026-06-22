@@ -113,147 +113,42 @@ def render_hero_dashboard(
         <div class="hero-card" style="
         background:{gradient};
         border-radius:22px;
-        padding:14px 20px;
+        padding:24px;
         color:white;
-        display:flex;
-        align-items:flex-start;
-        min-height:200px;
+        text-align:center;
+        min-height:220px;
         ">
-            <div class="hero-left" style="
-            flex:1;
-            text-align:center;
+            <span class="material-symbols-rounded"
+            style="
+            font-size:28px;
+            color:white;
             ">
-                <span class="material-symbols-rounded"
-                style="
-                font-size:22px;
-                margin-bottom:2ppx;
-                color:white;
-                ">
-                    {hero_icon}
-                </span>
-                <div style="
-                font-size:clamp(36px, 6vw, 52px);
-                font-weight:700;
-                line-height:1;
-                ">
-                    {result.upper()}
-                </div>
-                <div style="
-                font-size:20px;
-                font-weight:700;
-                margin-top:6px;
-                ">
-                    {vibe_title}
-                </div>
-                <div style="
-                font-size:12px;
-                opacity:.92;
-                max-width:320px;
-                margin:auto;
-                margin-top:14px;
-                line-height:1.5;
-                ">
-                    {hero_desc}
-                </div>
+                {hero_icon}
+            </span>
+            <div style="
+            font-size:clamp(36px, 6vw, 52px);
+            font-weight:700;
+            line-height:1;
+            margin-top:8px;
+            ">
+                {result.upper()}
             </div>
-            <div class="hero-divider" style="
-            width:1px;
-            height:170px;
-            background:rgba(255,255,255,.22);
-            margin:0 30px;
+            <div style="
+            font-size:20px;
+            font-weight:700;
+            margin-top:10px;
             ">
+                {vibe_title}
             </div>
-            <div class="hero-right" style="
-            flex:1;
+            <div style="
+            font-size:13px;
+            opacity:.92;
+            max-width:320px;
+            margin:auto;
+            margin-top:14px;
+            line-height:1.6;
             ">
-                <div style="
-                font-size:16px;
-                font-weight:700;
-                margin-bottom:24px;
-                display:flex;
-                align-items:center;
-                gap:8px;
-                ">
-                    <span class="material-symbols-rounded"
-                    style="
-                    font-size:18px;
-                    ">
-                        monitoring
-                    </span>
-                    Model Confidence
-                </div>
-                <div style="margin-bottom:16px;">
-                    <div style="
-                    display:flex;
-                    justify-content:space-between;
-                    font-size:11px;
-                    margin-bottom:6px;
-                    ">
-                        <span>Cool</span>
-                        <span>{cool_v:.1f}%</span>
-                    </div>
-                    <div style="
-                    height:10px;
-                    border-radius:10px;
-                    background:rgba(255,255,255,.18);
-                    overflow:hidden;
-                    ">
-                        <div style="
-                        width:{cool_v}%;
-                        background:#8DA2FB;
-                        height:100%;
-                        ">
-                        </div>
-                    </div>
-                </div>
-                <div style="margin-bottom:16px;">
-                    <div style="
-                    display:flex;
-                    justify-content:space-between;
-                    font-size:13px;
-                    margin-bottom:6px;
-                    ">
-                        <span>Neutral</span>
-                        <span>{neut_v:.1f}%</span>
-                    </div>
-                    <div style="
-                    height:10px;
-                    border-radius:10px;
-                    background:rgba(255,255,255,.18);
-                    overflow:hidden;
-                    ">
-                        <div style="
-                        width:{neut_v}%;
-                        background:#6FAE9C;
-                        height:100%;
-                        ">
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div style="
-                    display:flex;
-                    justify-content:space-between;
-                    font-size:13px;
-                    margin-bottom:6px;
-                    ">
-                        <span>Warm</span>
-                        <span>{warm_v:.1f}%</span>
-                    </div>
-                    <div style="
-                    height:10px;
-                    border-radius:10px;
-                    background:rgba(255,255,255,.18);
-                    overflow:hidden;
-                    ">
-                        <div style="
-                        width:{warm_v}%;
-                        background:#708238;
-                        height:100%;
-                        ">
-                        </div>
-                    </div>
-                </div>
+                {hero_desc}
             </div>
         </div>
         """,
