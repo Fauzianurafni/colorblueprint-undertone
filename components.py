@@ -113,10 +113,10 @@ def render_hero_dashboard(
         <div class="hero-card" style="
         background:{gradient};
         border-radius:22px;
-        padding:24px;
+        padding:20px;
         color:white;
         text-align:center;
-        min-height:220px;
+        min-height:160px;
         ">
             <span class="material-symbols-rounded"
             style="
