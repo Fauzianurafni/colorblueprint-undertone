@@ -44,9 +44,6 @@ def render_navbar():
                 Undertone Analyzer
             </span>
         </div>
-        <span class="cb-badge">
-            Riwayat Analisis
-        </span>
     </div>
     """, unsafe_allow_html=True)
     
